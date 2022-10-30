@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
-import {StyleSheet,View,Text,FlatList,Image} from 'react-native';
-
-export default class UserList extends Component {
+import {StyleSheet,View,Text} from 'react-native';
+import UsersList from './UsersList';
+export default class UserCard extends UsersList {
     constructor(props){
         super(props);
         this.state ={
@@ -25,7 +25,6 @@ export default class UserList extends Component {
             <View style={styles.item}>
                 <Text style={styles.text}>{item.login}</Text>
                 <Text style={styles.text}>{item.id}</Text>
-                <Image source={item.avatar_url} style={{width: 60, height: 60}} />
             </View>
         )
     }
@@ -64,3 +63,4 @@ const styles = StyleSheet.create({
         color: 'black',
     }
 });
+
