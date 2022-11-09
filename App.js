@@ -1,11 +1,8 @@
 import * as React from 'react';
-import {View, Text} from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator,createStackNavigator} from '@react-navigation/native-stack';
-import { createAppContainer } from 'react-navigation';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import UserList from './src/component/UsersList';
 import UserInfo from './src/component/UserInfo';
-import UserCard from './src/component/UserCard';
 
  
 const Stack = createNativeStackNavigator();

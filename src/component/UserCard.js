@@ -3,17 +3,8 @@ import {
   StyleSheet,
   View,
   Text,
-  FlatList,
   Image,
-  Pressable,
-  Button,
 } from 'react-native';
-import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import {createAppContainer} from 'react-navigation';
-import {useNavigation} from '@react-navigation/native';
-import {createStackNavigator} from 'react-navigation-stack';
-import UserInfo from './UserInfo';
 
 export default class UserCard extends React.Component {
   // componentDidMount() {
@@ -33,22 +24,24 @@ export default class UserCard extends React.Component {
 }
 const styles = StyleSheet.create({
   item: {
+    flex: 1,
     borderBottomWidth: 1,
     borderBottomColor: '#eee',
     backgroundColor: '#e0e0e0',
-    padding: 20,
-    marginVertical: 8,
+    padding: 25,
+    marginVertical: 12,
     marginHorizontal: 16,
     borderRadius: 20,
     elevation: 10,
     shadowColor: 'black',
+    width: '70%',
+    alignSelf: 'center',
   },
   text: {
-    alignItems: 'center',
-    justifyContent: 'center',
     fontSize: 20,
     fontFamily: 'monospace',
     color: 'black',
+    textAlign: 'center',
   },
   button: {
     alignItems: 'center',
@@ -61,5 +54,6 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     borderRadius: 100,
+    alignSelf: 'center',
   },
 });
