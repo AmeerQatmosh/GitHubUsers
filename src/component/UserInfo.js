@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, Image,SafeAreaView, ScrollView} from 'react-native';
+import {StyleSheet, Text, Image,SafeAreaView, ScrollView,ImageSource} from 'react-native';
 export default class UserInfo extends Component {
   componentDidMount() {
     console.log('UserInfo', this.props.route.params);
@@ -12,6 +12,7 @@ export default class UserInfo extends Component {
 
         <Image
           style={styles.image}
+          //defaultSource={require('C:\Users\ameer\OneDrive\Desktop\React Native Tasks\GitHubUsers\assets\avatar-placeholder.png')}
           source={{uri: this.props.route.params.user.avatar_url}}
         />  
         <Text style={{textAlign: 'center',fontSize: 20,fontFamily: 'monospace',color: 'black'}} > {this.props.route.params.user.login}</Text>

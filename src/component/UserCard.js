@@ -4,21 +4,37 @@ import {
   View,
   Text,
   Image,
+  TouchableOpacity,
 } from 'react-native';
-
 export default class UserCard extends React.Component {
   // componentDidMount() {
   //  console.log('usercard', this.props);
   // }
   render() {
+    // const [onLoadImage, setLoadImage] = useState(false);
+    // const imageLoading = () => {
+    //   setLoadImage(true);
+    // }
+    const avatarPlaceholderImg = require("C:\Users\ameer\OneDrive\Desktop\React Native Tasks\GitHubUsers\assets\avatar-placeholder.png")
     return (
+    <TouchableOpacity onPress={() => this.props.OnPress()} >
       <View style={styles.item}>
+        {/* <Image
+          style={styles.image}
+          //source={{uri: this.props.user.avatar_url}}
+          source = {onLoadImage ? { uri: this.props.user.avatar_url }
+          : require('C:\Users\ameer\OneDrive\Desktop\React Native Tasks\GitHubUsers\assets\avatar-placeholder.png')}
+          onLoad={() => imageLoading()}
+        /> */}
         <Image
           style={styles.image}
           source={{uri: this.props.user.avatar_url}}
+          //defaultImage={avatarPlaceholderImg}
         />
+
         <Text style={styles.text}>{this.props.user.login}</Text>
       </View>
+      </TouchableOpacity>
     );
   }
 }
