@@ -1,5 +1,5 @@
-import React, {Component,useCallback,useState } from 'react';
-import {StyleSheet,View,FlatList,TouchableOpacity} from 'react-native';
+import React, {Component} from 'react';
+import {StyleSheet,View,FlatList} from 'react-native';
 import UserCard from './UserCard';
 
 export default class UserList extends Component {
@@ -23,7 +23,7 @@ export default class UserList extends Component {
   _renderItem = ({item, index}) => {
     const onClick = ()=>this.props.navigation.navigate('User Info',{user: item})
     return (     
-        <UserCard user={item} OnPress={onClick} />
+      <UserCard user={item} OnPress={onClick} />
     );
   };
   render() {

@@ -7,37 +7,30 @@ import {
   TouchableOpacity,
 } from 'react-native';
 export default class UserCard extends React.Component {
+  state = { showDefault: true, error: false };
+
   // componentDidMount() {
   //  console.log('usercard', this.props);
   // }
+  
   render() {
-    // const [onLoadImage, setLoadImage] = useState(false);
-    // const imageLoading = () => {
-    //   setLoadImage(true);
-    // }
-    const avatarPlaceholderImg = require("C:\Users\ameer\OneDrive\Desktop\React Native Tasks\GitHubUsers\assets\avatar-placeholder.png")
+    var image = this.state.showDefault ? require('./assets/avatar.png') : ( { uri: this.props.user.avatar_url } );
     return (
     <TouchableOpacity onPress={() => this.props.OnPress()} >
       <View style={styles.item}>
-        {/* <Image
-          style={styles.image}
-          //source={{uri: this.props.user.avatar_url}}
-          source = {onLoadImage ? { uri: this.props.user.avatar_url }
-          : require('C:\Users\ameer\OneDrive\Desktop\React Native Tasks\GitHubUsers\assets\avatar-placeholder.png')}
-          onLoad={() => imageLoading()}
-        /> */}
         <Image
           style={styles.image}
-          source={{uri: this.props.user.avatar_url}}
-          //defaultImage={avatarPlaceholderImg}
+          source={image}
+          onLoadEnd={() => this.setState({showDefault: false})} 
         />
 
-        <Text style={styles.text}>{this.props.user.login}</Text>
+        <Text style={styles.username}>{this.props.user.login}</Text>
       </View>
       </TouchableOpacity>
     );
   }
 }
+
 const styles = StyleSheet.create({
   item: {
     flex: 1,
@@ -53,11 +46,12 @@ const styles = StyleSheet.create({
     width: '70%',
     alignSelf: 'center',
   },
-  text: {
+  username: {
     fontSize: 20,
-    fontFamily: 'monospace',
+    fontFamily: 'Sans-serif',
     color: 'black',
     textAlign: 'center',
+    
   },
   button: {
     alignItems: 'center',

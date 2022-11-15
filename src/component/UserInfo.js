@@ -1,10 +1,14 @@
 import React, {Component} from 'react';
-import {StyleSheet, Text, Image,SafeAreaView, ScrollView,ImageSource} from 'react-native';
+import {StyleSheet, Text, Image,SafeAreaView, ScrollView} from 'react-native';
 export default class UserInfo extends Component {
-  componentDidMount() {
-    console.log('UserInfo', this.props.route.params);
-  }
+  state = { showDefault: true, error: false };
+
+  // componentDidMount() {
+  //   console.log('UserInfo', this.props.route.params);
+  // }
+
   render() {
+    var image = this.state.showDefault ? require('./assets/avatar.png') : ( { uri: this.props.route.params.user.avatar_url } );
     const { navigation,route } = this.props;
     return (
     <SafeAreaView style={styles.container}>
@@ -12,8 +16,8 @@ export default class UserInfo extends Component {
 
         <Image
           style={styles.image}
-          //defaultSource={require('C:\Users\ameer\OneDrive\Desktop\React Native Tasks\GitHubUsers\assets\avatar-placeholder.png')}
-          source={{uri: this.props.route.params.user.avatar_url}}
+          source={image}
+          onLoadEnd={() => this.setState({showDefault: false})} 
         />  
         <Text style={{textAlign: 'center',fontSize: 20,fontFamily: 'monospace',color: 'black'}} > {this.props.route.params.user.login}</Text>
         <Text style={styles.text} > <Text style={styles.bold}>ID:</Text> {this.props.route.params.user.id}</Text>
@@ -48,6 +52,7 @@ export default class UserInfo extends Component {
     </SafeAreaView>
       )} 
 }
+
 const styles = StyleSheet.create({
   container: {
     borderBottomWidth: 1,
