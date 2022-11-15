@@ -1,4 +1,4 @@
-package com.githubusers.newarchitecture;
+package com.awesomeproject.newarchitecture;
 
 import android.app.Application;
 import androidx.annotation.NonNull;
@@ -19,9 +19,9 @@ import com.facebook.react.fabric.CoreComponentsRegistry;
 import com.facebook.react.fabric.FabricJSIModuleProvider;
 import com.facebook.react.fabric.ReactNativeConfig;
 import com.facebook.react.uimanager.ViewManagerRegistry;
-import com.githubusers.BuildConfig;
-import com.githubusers.newarchitecture.components.MainComponentsRegistry;
-import com.githubusers.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
+import com.awesomeproject.BuildConfig;
+import com.awesomeproject.newarchitecture.components.MainComponentsRegistry;
+import com.awesomeproject.newarchitecture.modules.MainApplicationTurboModuleManagerDelegate;
 import java.util.ArrayList;
 import java.util.List;
 
